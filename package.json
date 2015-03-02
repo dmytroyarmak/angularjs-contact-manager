@@ -1,0 +1,29 @@
+{
+  "name": "angularjs-contact-manager",
+  "version": "0.0.1",
+  "description": "Implementation of contact manager built with AngularJS",
+  "main": "dest/contact-manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmytroyarmak/angularjs-contact-manager.git"
+  },
+  "keywords": [
+    "angularjs",
+    "contact-manager"
+  ],
+  "author": "Dmytro Yarmak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmytroyarmak/angularjs-contact-manager/issues"
+  },
+  "homepage": "https://github.com/dmytroyarmak/angularjs-contact-manager",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "require-dir": "^0.1.0",
+    "vinyl-paths": "^1.0.0"
+  }
+}
