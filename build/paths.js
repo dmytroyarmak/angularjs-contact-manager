@@ -2,8 +2,8 @@ var appRoot = 'src/';
 
 module.exports = {
   root: appRoot,
-  source: appRoot + 'app/**/*.js',
+  js: appRoot + 'app/**/*.js',
   html: appRoot + 'app/**/*.html',
-  style: appRoot + 'styles/**/*.css',
+  less: appRoot + 'styles/contact-manager.less',
   output: 'dist/'
 };
