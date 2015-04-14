@@ -16,7 +16,7 @@ function ContactManagerController($router) {
       component: 'contactsList'
     },
     {
-      path: '/contacts/:contectId',
+      path: '/contacts/:id',
       component: 'contactsManage'
     }
   ]);

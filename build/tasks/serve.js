@@ -11,6 +11,8 @@ gulp.task('serve', ['build'], function(done) {
     }, done);
 
     gulp.watch(paths.js, ['build-app-watch']);
+    gulp.watch(paths.templates, ['build-templates-watch']);
 });
 
 gulp.task('build-app-watch', ['build-app'], browserSync.reload);
+gulp.task('build-templates-watch', ['build-templates'], browserSync.reload);

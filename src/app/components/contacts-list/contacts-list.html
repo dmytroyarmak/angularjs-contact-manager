@@ -1,1 +1,31 @@
-<h2>Contacts List</h2>
+<h2 class="page-header text-center">List of contacts</h2>
+<p class="text-center">
+  <a ng-link="contactsManage({id: 'new'})" class="btn btn-lg btn-outline add-contact-btn">Add Contact</a>
+</p>
+<ul class="media-list row">
+  <li class="media col-md-6 col-lg-4" ng-repeat="contact in contactsList.contacts">
+    <div class="thumbnail">
+      <img class="media-object" ng-src="{{contact.thumbnailUrl}}">
+    </div>
+    <div class="media-heading">
+      <h3>{{contact.name}}</h3>
+      <small>
+          <a ng-link="contactsManage({id: contact.id})">
+            <i class="glyphicon glyphicon-pencil edit-contract"></i>
+          </a>
+          <a ng-click="">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+      </small>
+    </div>
+    <div class="media-body">
+      <dl>
+        <dt>Phone Number:</dt>
+        <dd>{{contact.tel}}</dd>
+        <dt>Email:</dt>
+        <dd>{{contact.email}}</dd>
+      </dl>
+    </div>
+    <hr>
+  </li>
+</ul>

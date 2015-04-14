@@ -11,7 +11,7 @@ gulp.task('build-vendor', function () {
   return gulp.src(paths.vendorJs)
     .pipe(uglify())
     .pipe(concat('contact-manager.vendor.js'))
-    .pipe(gulp.dest(paths.output));
+    .pipe(gulp.dest(paths.output + '/js'));
 });
 
 gulp.task('build-templates', function () {
@@ -19,7 +19,7 @@ gulp.task('build-templates', function () {
     .pipe(templateCache('contact-manager.templates.js', {
       module: 'contactManager'
     }))
-    .pipe(gulp.dest(paths.output));
+    .pipe(gulp.dest(paths.output + '/js'));
 });
 
 gulp.task('build-app', function () {
@@ -27,15 +27,20 @@ gulp.task('build-app', function () {
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(concat('contact-manager.js'))
-    .pipe(gulp.dest(paths.output));
+    .pipe(gulp.dest(paths.output + '/js'));
 });
 
 gulp.task('build-styles', function () {
   return gulp.src(paths.less)
     .pipe(less())
-    .pipe(gulp.dest(paths.output));
+    .pipe(gulp.dest(paths.output + '/css'));
+});
+
+gulp.task('copy-fonts', function () {
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.output + '/fonts'));
 });
 
 gulp.task('build', function (done) {
-  runSequence('clean', ['build-app', 'build-templates', 'build-vendor', 'build-styles'], done);
+  runSequence('clean', ['copy-fonts', 'build-app', 'build-templates', 'build-vendor', 'build-styles'], done);
 });

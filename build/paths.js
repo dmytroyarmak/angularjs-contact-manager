@@ -14,5 +14,6 @@ module.exports = {
   templates: appRoot + 'app/**/*.html',
   html: appRoot + 'app/**/*.html',
   less: appRoot + 'styles/contact-manager.less',
+  fonts: 'bower_components/bootstrap/dist/fonts/*',
   output: 'dist/'
 };
