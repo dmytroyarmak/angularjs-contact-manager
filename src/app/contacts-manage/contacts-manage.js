@@ -1,0 +1,2 @@
+angular.module('contactManager.contactsManage', [
+]);

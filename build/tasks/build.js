@@ -5,6 +5,13 @@ var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
 var paths = require('../paths');
 
+gulp.task('build-vendor', function () {
+  return gulp.src(paths.vendorJs)
+    .pipe(uglify())
+    .pipe(concat('contact-manager.vendor.js'))
+    .pipe(gulp.dest(paths.output));
+});
+
 gulp.task('build-app', function () {
   return gulp.src(paths.js)
     .pipe(uglify())
@@ -19,5 +26,5 @@ gulp.task('build-styles', function () {
 });
 
 gulp.task('build', function (done) {
-  runSequence('clean', ['build-app', 'build-styles'], done);
+  runSequence('clean', ['build-app', 'build-vendor', 'build-styles'], done);
 });

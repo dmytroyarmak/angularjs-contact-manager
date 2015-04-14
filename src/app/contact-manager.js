@@ -1,1 +1,4 @@
-window.alert('Contact Manager');
+angular.module('contactManager', [
+  'contactManager.contactsList',
+  'contactManager.contactsManage'
+]);
