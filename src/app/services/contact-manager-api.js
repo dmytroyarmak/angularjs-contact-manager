@@ -12,7 +12,8 @@ function contactManagerApi($http) {
   var THUMBNAIL_URL = CONTACT_MANAGER_API_HOST + '/img/faces/{{faceId}}.jpg'
 
   var service = {
-    getAllContacts: getAllContacts
+    getAllContacts: getAllContacts,
+    deleteContact: deleteContact
   };
 
   return service;
@@ -23,6 +24,11 @@ function contactManagerApi($http) {
     return $http.get(CONTACTS_URL)
       .then(_getDataFromResponse)
       .then(_parseContacts);
+  }
+
+  function deleteContact (contactId) {
+    var contactUrl = CONTACT_URL.replace('{{id}}', contactId)
+    return $http.delete(contactUrl);
   }
 
   function _getDataFromResponse (resp) {

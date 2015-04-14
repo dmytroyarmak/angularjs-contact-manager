@@ -7,16 +7,24 @@ angular
 /* @ngInject */
 function ContactsListController(contactManagerApi) {
   var contactsList = this;
+  contactsList.deleteContact = deleteContact;
   contactsList.activate = activate;
   contactsList.contacts = [];
 
   //////////
 
   function activate () {
-    return getAllContacts();
+    return _getAllContacts();
   }
 
-  function getAllContacts () {
+  function deleteContact (contact) {
+    var indexOfContact = contactsList.contacts.indexOf(contact);
+    contactsList.contacts.splice(indexOfContact, 1);
+
+    contactManagerApi.deleteContact(contact.id);
+  }
+
+  function _getAllContacts () {
     contactManagerApi
       .getAllContacts()
       .then(_onGetAllContactsSuccess);

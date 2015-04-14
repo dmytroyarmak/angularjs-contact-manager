@@ -2,10 +2,11 @@
 
 angular
   .module('contactManager')
-  .config(contactManagerConfig );
+  .config(contactManagerComponentLoaderConfig)
+  .config(contactManagerHtppConfig);
 
 /* @ngInject */
-function contactManagerConfig($componentLoaderProvider) {
+function contactManagerComponentLoaderConfig($componentLoaderProvider) {
   $componentLoaderProvider.setTemplateMapping(componentToTemplate);
 
   function componentToTemplate(name) {
@@ -18,4 +19,9 @@ function contactManagerConfig($componentLoaderProvider) {
       return '-' + $1.toLowerCase();
     });
   }
+}
+
+/* @ngInject */
+function contactManagerHtppConfig ($httpProvider) {
+  $httpProvider.defaults.withCredentials = true;
 }
