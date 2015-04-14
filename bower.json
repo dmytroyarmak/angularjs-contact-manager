@@ -1,0 +1,21 @@
+{
+  "name": "angularjs-contact-manager",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dmytroyarmak/angularjs-contact-manager",
+  "authors": [
+    "Dmytro Yarmak <dmytroyarmak@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-new-router": "~0.5.3",
+    "angular": "1.4.0-rc.0",
+    "contact-manager-css": "~0.0.1"
+  }
+}
