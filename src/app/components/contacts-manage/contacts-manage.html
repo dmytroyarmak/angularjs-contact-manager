@@ -1,1 +1,35 @@
-<h2>Contacts manage</h2>
+<h2 class="page-header text-center">{{contactsManage.isNew() ? 'Create' : 'Edit'}} Contact</h2>
+<form role="form" class="form-horizontal" ng-submit="contactsManage.submitForm()">
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Full name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" ng-model="contactsManage.contact.name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Email address:</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" ng-model="contactsManage.contact.email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Telephone number:</label>
+    <div class="col-sm-6">
+      <input type="tel" class="form-control" ng-model="contactsManage.contact.tel">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Face id:</label>
+    <div class="col-sm-6">
+      <select class="form-control" ng-model="contactsManage.contact.faceId" ng-options="faceId for faceId in contactsManage.availableFaceIds"></select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-3">
+      <button type="submit" class="btn btn-outline btn-lg btn-block">Submit</button>
+    </div>
+    <div class="col-sm-3">
+      <a href="#contacts" class="btn btn-outline btn-lg btn-block">Cancel</a>
+    </div>
+  </div>
+</form>
