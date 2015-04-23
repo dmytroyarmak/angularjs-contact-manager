@@ -4,6 +4,7 @@ var less = require('gulp-less');
 var concat = require('gulp-concat');
 var ngAnnotate = require('gulp-ng-annotate');
 var templateCache = require('gulp-angular-templatecache');
+var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
 var paths = require('../paths');
 
@@ -24,9 +25,11 @@ gulp.task('build-templates', function () {
 
 gulp.task('build-app', function () {
   return gulp.src(paths.js)
+    .pipe(sourcemaps.init())
     .pipe(ngAnnotate())
-    .pipe(uglify())
     .pipe(concat('contact-manager.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.output + '/js'));
 });
 
