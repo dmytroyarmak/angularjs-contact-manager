@@ -5,7 +5,7 @@ angular
   .controller('ContactsManageController', ContactsManageController);
 
 /* @ngInject */
-function ContactsManageController($router, $routeParams, $q, contactManagerApi) {
+function ContactsManageController($router, $routeParams, $location, $q, contactManagerApi) {
   var contactsManage = this;
   contactsManage.activate = activate;
   contactsManage.isNew = isNew;
@@ -64,9 +64,7 @@ function ContactsManageController($router, $routeParams, $q, contactManagerApi) 
   }
 
   function _goToContactsList() {
-    console.log('_goToContactsList');
-    debugger
     var contactsListLocation = $router.generate('contactsList');
-    $router.navigate(contactsListLocation);
+    $location.path(contactsListLocation);
   }
 }
