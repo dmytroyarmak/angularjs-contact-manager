@@ -1,8 +1,10 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('contactManager', [
-  'ngNewRouter',
+  angular.module('contactManager', [
+    'ngNewRouter',
 
-  'contactManager.contactsList',
-  'contactManager.contactsManage'
-]);
+    'contactManager.contactsList',
+    'contactManager.contactsManage'
+  ]);
+}());

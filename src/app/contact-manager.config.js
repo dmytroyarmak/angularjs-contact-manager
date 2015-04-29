@@ -1,10 +1,12 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular
-  .module('contactManager')
-  .config(contactManagerHtppConfig);
+  angular
+    .module('contactManager')
+    .config(contactManagerHtppConfig);
 
-/* @ngInject */
-function contactManagerHtppConfig($httpProvider) {
-  $httpProvider.defaults.withCredentials = true;
-}
+  /* @ngInject */
+  function contactManagerHtppConfig($httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
+  }
+}());

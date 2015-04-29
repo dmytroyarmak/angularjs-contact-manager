@@ -1,23 +1,25 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular
-  .module('contactManager')
-  .controller('ContactManagerController', ContactManagerController);
+  angular
+    .module('contactManager')
+    .controller('ContactManagerController', ContactManagerController);
 
-/* @ngInject */
-function ContactManagerController($router) {
-  $router.config([
-    {
-      path: '/',
-      redirectTo: '/contacts'
-    },
-    {
-      path: '/contacts',
-      component: 'contactsList'
-    },
-    {
-      path: '/contacts/:id',
-      component: 'contactsManage'
-    }
-  ]);
-}
+  /* @ngInject */
+  function ContactManagerController($router) {
+    $router.config([
+      {
+        path: '/',
+        redirectTo: '/contacts'
+      },
+      {
+        path: '/contacts',
+        component: 'contactsList'
+      },
+      {
+        path: '/contacts/:id',
+        component: 'contactsManage'
+      }
+    ]);
+  }
+}());
