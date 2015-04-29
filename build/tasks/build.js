@@ -18,6 +18,7 @@ gulp.task('build-vendor', function () {
 gulp.task('build-templates', function () {
   return gulp.src(paths.templates)
     .pipe(templateCache('contact-manager.templates.js', {
+      root: '.',
       module: 'contactManager'
     }))
     .pipe(gulp.dest(paths.output + '/js'));
