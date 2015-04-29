@@ -1,10 +1,12 @@
+/* jshint node: true */
+'use strict';
 var appRoot = 'src/',
 	bowerRoot = 'bower_components/';
 
 module.exports = {
   root: appRoot,
   vendorJs: [
-  	bowerRoot + 'angular/angular.js',
+    bowerRoot + 'angular/angular.js',
     bowerRoot + 'angular-new-router/dist/router.es5.js'
   ],
   js: [
