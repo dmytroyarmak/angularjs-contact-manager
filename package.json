@@ -27,6 +27,7 @@
     "gulp": "^3.8.11",
     "gulp-angular-templatecache": "Merott/gulp-angular-templatecache#dot-root",
     "gulp-concat": "^2.5.2",
+    "gulp-htmlmin": "^1.1.1",
     "gulp-less": "^3.0.1",
     "gulp-ng-annotate": "^0.5.2",
     "gulp-sourcemaps": "^1.5.2",

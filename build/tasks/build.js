@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var ngAnnotate = require('gulp-ng-annotate');
 var templateCache = require('gulp-angular-templatecache');
 var sourcemaps = require('gulp-sourcemaps');
+var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var paths = require('../paths');
 
@@ -17,6 +18,7 @@ gulp.task('build-vendor', function () {
 
 gulp.task('build-templates', function () {
   return gulp.src(paths.templates)
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(templateCache('contact-manager.templates.js', {
       root: '.',
       module: 'contactManager'
