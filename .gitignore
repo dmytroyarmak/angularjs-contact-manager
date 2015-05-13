@@ -2,4 +2,6 @@
 /node_modules
 /tmp
 /dist
+/typings
+/.settings
 .DS_Store
