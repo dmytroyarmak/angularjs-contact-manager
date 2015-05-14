@@ -1,6 +1,3 @@
-/// <reference path="../../../../typings/tsd.d.ts" />
-/// <reference path="../../../../src/app/services/contact-manager-api.ts" />
-
 module cm.contactsManage {
   'use strict';
   
