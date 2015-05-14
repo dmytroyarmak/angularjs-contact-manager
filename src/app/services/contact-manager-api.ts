@@ -30,39 +30,48 @@ module cm.services.contactManagerApi {
     private static AVAILABLE_FACE_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     
     static $inject = ['$http', '$q'];
-    constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
-      
-    }
+    constructor(private $http: ng.IHttpService, private $q: ng.IQService) {}
     
     getAllContacts(): ng.IPromise<IContact[]> {
-      return this.$http.get(ContactManagerApiService.CONTACTS_URL)
-        .then(this.getContactDataArrayFromResponse.bind(this))
-        .then(this.parseContacts.bind(this));
+      return this.$http
+        .get(ContactManagerApiService.CONTACTS_URL)
+        .then((resp: ng.IHttpPromiseCallbackArg<IContactData[]>) => {
+          return this.parseContacts(resp.data);
+        });
     }
     
     getContact(contactId: string): ng.IPromise<IContact> {
       var contactUrl = this.getContactUrl(contactId);
-      return this.$http.get(contactUrl)
-        .then(this.getContactDataFromResponse.bind(this))
-        .then(this.parseContact.bind(this));
+      return this.$http
+        .get(contactUrl)
+        .then((resp: ng.IHttpPromiseCallbackArg<IContactData>) => {
+          return this.parseContact(resp.data);
+        });
     }
     
     createContact(contact: IContact): ng.IPromise<IContact> {
-      return this.$http.post(ContactManagerApiService.CONTACTS_URL, contact)
-        .then(this.getContactDataFromResponse.bind(this))
-        .then(this.parseContact.bind(this));
+      return this.$http
+        .post(ContactManagerApiService.CONTACTS_URL, contact)
+        .then((resp: ng.IHttpPromiseCallbackArg<IContactData>) => {
+          return this.parseContact(resp.data);
+        });
     }
 
     updateContact(contact: IContact): ng.IPromise<IContact> {
       var contactUrl = this.getContactUrl(contact.id);
+      
       return this.$http.put(contactUrl, contact)
-        .then(this.getContactDataFromResponse.bind(this))
-        .then(this.parseContact.bind(this));
+        .then((resp: ng.IHttpPromiseCallbackArg<IContactData>) => {
+          return this.parseContact(resp.data);
+        });
     }
 
-    deleteContact(contact: IContact): ng.IPromise<any> {
+    deleteContact(contact: IContact): ng.IPromise<void> {
       var contactUrl = this.getContactUrl(contact.id);
-      return this.$http.delete(contactUrl);
+      
+      return this.$http
+        .delete(contactUrl)
+        .then(angular.noop);
     }
 
     getAvailableFaceIds() {
@@ -72,17 +81,11 @@ module cm.services.contactManagerApi {
     private getContactUrl(contactId: string): string {
       return ContactManagerApiService.CONTACT_URL.replace('{{id}}', contactId);
     }
-    
-    private getContactDataFromResponse(resp: ng.IHttpPromiseCallbackArg<IContactData>): IContactData {
-      return resp.data;
-    }
-     
-    private getContactDataArrayFromResponse(resp: ng.IHttpPromiseCallbackArg<IContactData[]>): IContactData[] {
-      return resp.data;
-    }
        
     private parseContacts(contacts: IContactData[]): IContact[] {
-      return contacts.map(this.parseContact);
+      return contacts.map((contact: IContact) => {
+        return this.parseContact(contact);
+      });
     }
     
     private parseContact(contact: IContactData): IContact {

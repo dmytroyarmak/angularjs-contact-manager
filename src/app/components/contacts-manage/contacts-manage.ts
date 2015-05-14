@@ -37,14 +37,10 @@ module cm.contactsManage {
     }
     
     activate() {
-      if (this.isNew()) {
-        this.contact = <cm.services.contactManagerApi.IContact>{};
-      } else {
-        return this.$q.all([
-          this.getAvailableFaceIds(),
-          this.getContact()
-        ]);
-      }
+      return this.$q.all([
+        this.getAvailableFaceIds(),
+        this.getContact()
+      ]);
     }
 
     isNew(): boolean {
@@ -65,11 +61,16 @@ module cm.contactsManage {
     }
 
     private getContact(): ng.IPromise<void> {
-      return this.contactManagerApi
-        .getContact(this.$routeParams.id)
-        .then((contact: cm.services.contactManagerApi.IContact) => {
-          this.contact = contact;
-        });
+      if (this.isNew()) {
+        this.contact = <cm.services.contactManagerApi.IContact>{};
+        return this.$q.when();
+      } else {
+        return this.contactManagerApi
+          .getContact(this.$routeParams.id)
+          .then((contact: cm.services.contactManagerApi.IContact) => {
+            this.contact = contact;
+          });
+      }
     }
 
     private createOrUpdateContact(contact: cm.services.contactManagerApi.IContact): ng.IPromise<cm.services.contactManagerApi.IContact> {

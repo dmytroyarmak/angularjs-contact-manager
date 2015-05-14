@@ -32,11 +32,11 @@ gulp.task('build-templates', function() {
 });
 
 gulp.task('build-app', function() {
+  var tsProject = ts.createProject('tsconfig.json');
+  
   var tsResult = gulp.src(paths.ts)
     .pipe(sourcemaps.init())
-    .pipe(ts({
-      sortOutput: true
-    }));
+    .pipe(ts(tsProject));
     
   return tsResult.js
     .pipe(concat('contact-manager.js'))
