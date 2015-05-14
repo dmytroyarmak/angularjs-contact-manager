@@ -12,7 +12,7 @@ gulp.task('serve', ['build'], function(done) {
     }
   }, done);
 
-  gulp.watch(paths.js, ['build-app-watch']);
+  gulp.watch(paths.ts, ['build-app-watch']);
   gulp.watch(paths.less, ['build-styles-watch']);
   gulp.watch(paths.templates, ['build-templates-watch']);
 });

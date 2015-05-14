@@ -9,9 +9,9 @@ module.exports = {
     bowerRoot + 'angular/angular.js',
     bowerRoot + 'angular-new-router/dist/router.es5.js'
   ],
-  js: [
-    appRoot + 'app/**/!(*.controller|*.config).js',
-    appRoot + 'app/**/*.js'
+  ts: [
+    appRoot + 'app/**/!(*.controller|*.config).ts',
+    appRoot + 'app/**/*.ts'
   ],
   templates: appRoot + 'app/**/*.html',
   html: appRoot + 'app/**/*.html',

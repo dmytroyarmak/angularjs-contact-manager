@@ -1,6 +1,7 @@
 /* jshint node: true */
 'use strict';
 var gulp = require('gulp');
+var ts = require('gulp-typescript');
 var uglify = require('gulp-uglify');
 var less = require('gulp-less');
 var concat = require('gulp-concat');
@@ -13,8 +14,10 @@ var paths = require('../paths');
 
 gulp.task('build-vendor', function() {
   return gulp.src(paths.vendorJs)
+    .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(concat('contact-manager.vendor.js'))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.output + '/js'));
 });
 
@@ -29,9 +32,13 @@ gulp.task('build-templates', function() {
 });
 
 gulp.task('build-app', function() {
-  return gulp.src(paths.js)
+  var tsResult = gulp.src(paths.ts)
     .pipe(sourcemaps.init())
-    .pipe(ngAnnotate())
+    .pipe(ts({
+      sortOutput: true
+    }));
+    
+  return tsResult.js
     .pipe(concat('contact-manager.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
