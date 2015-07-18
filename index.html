@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="dist/css/contact-manager.css">
 </head>
 <body>
-	<div ng-app="contactManager" ng-strict-di ng-controller="ContactManagerController">
+	<div ng-app="contactManager" ng-strict-di>
     <header class="bs-header">
       <div class="container">
         <h1>Contact Manager</h1>
@@ -16,7 +16,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <div ng-viewport></div>
+          <div ng-view></div>
         </div>
       </div>
     </div>

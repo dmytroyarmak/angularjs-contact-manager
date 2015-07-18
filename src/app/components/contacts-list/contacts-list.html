@@ -1,6 +1,6 @@
 <h2 class="page-header text-center">List of contacts</h2>
 <p class="text-center">
-  <a ng-link="contactsManage({id: 'new'})" class="btn btn-lg btn-outline add-contact-btn">Add Contact</a>
+  <a ng-href="#contacts/new" class="btn btn-lg btn-outline add-contact-btn">Add Contact</a>
 </p>
 <div class="row">
   <div class="col-md-6 col-lg-4" ng-repeat="contact in contactsList.contacts">
@@ -13,7 +13,7 @@
         <div class="media-heading">
           <h4>{{contact.name}}</h4>
           <small>
-              <a ng-link="contactsManage({id: contact.id})">
+              <a ng-href="#contacts/{{contact.id}}">
                 <i class="glyphicon glyphicon-pencil edit-contract"></i>
               </a>
               <a ng-click="contactsList.deleteContact(contact)">

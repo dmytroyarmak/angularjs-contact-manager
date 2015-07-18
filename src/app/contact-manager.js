@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('contactManager', [
-    'ngNewRouter',
+    'ngRoute',
 
     'contactManager.contactsList',
     'contactManager.contactsManage'

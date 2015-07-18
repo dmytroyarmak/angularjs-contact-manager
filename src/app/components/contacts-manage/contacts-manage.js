@@ -8,25 +8,22 @@
     .controller('ContactsManageController', ContactsManageController);
 
   /* @ngInject */
-  function ContactsManageController($router, $routeParams, $location, $q, contactManagerApi) {
+  function ContactsManageController($routeParams, $location, $q, contactManagerApi) {
     var contactsManage = this;
-    contactsManage.activate = activate;
     contactsManage.isNew = isNew;
     contactsManage.submitForm = submitForm;
     contactsManage.contact = null;
     contactsManage.availableFaceIds = null;
 
+    activate();
+
     //////////
 
     function activate() {
-      if (isNew()) {
-        contactsManage.contact = {};
-      } else {
-        return $q.all([
-          _getAvailableFaceIds(),
-          _getContact()
-        ]);
-      }
+      return $q.all([
+        _getAvailableFaceIds(),
+        _getContact()
+      ]);
     }
 
     function isNew() {
@@ -49,9 +46,13 @@
     }
 
     function _getContact() {
-      return contactManagerApi
-        .getContact($routeParams.id)
-        .then(_onGetContactSuccess);
+      if (isNew()) {
+        contactsManage.contact = {};
+      } else {
+        return contactManagerApi
+          .getContact($routeParams.id)
+          .then(_onGetContactSuccess);
+      }
     }
 
     function _onGetContactSuccess(contact) {
@@ -67,8 +68,7 @@
     }
 
     function _goToContactsList() {
-      var contactsListLocation = $router.generate('contactsList');
-      $location.path(contactsListLocation);
+      $location.path('contacts');
     }
   }
 }());

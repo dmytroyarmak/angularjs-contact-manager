@@ -11,8 +11,9 @@
   function ContactsListController(contactManagerApi) {
     var contactsList = this;
     contactsList.deleteContact = deleteContact;
-    contactsList.activate = activate;
     contactsList.contacts = [];
+
+    activate();
 
     //////////
 

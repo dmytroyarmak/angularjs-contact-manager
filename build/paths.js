@@ -7,7 +7,7 @@ module.exports = {
   root: appRoot,
   vendorJs: [
     bowerRoot + 'angular/angular.js',
-    bowerRoot + 'angular-new-router/dist/router.es5.js'
+    bowerRoot + 'angular-route/angular-route.js'
   ],
   js: [
     appRoot + 'app/**/!(*.controller|*.config).js',
