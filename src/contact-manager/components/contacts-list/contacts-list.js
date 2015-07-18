@@ -1,10 +1,12 @@
+import contactsListTemplate from './contacts-list.html!text';
+
 contactsListConfig.$inject = ['$routeProvider'];
 export function contactsListConfig($routeProvider) {
   $routeProvider
     .when('/contacts', {
       controller: 'ContactsListController',
       controllerAs: 'contactsList',
-      templateUrl: 'src/contact-manager/components/contacts-list/contacts-list.html'
+      template: contactsListTemplate
     });
 }
 

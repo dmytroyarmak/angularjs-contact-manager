@@ -1,10 +1,12 @@
+import contactsManageTemplate from './contacts-manage.html!text';
+
 contactsManageConfig.$inject = ['$routeProvider'];
 export function contactsManageConfig($routeProvider) {
   $routeProvider
     .when('/contacts/:id', {
       controller: 'ContactsManageController',
       controllerAs: 'contactsManage',
-      templateUrl: 'src/contact-manager/components/contacts-manage/contacts-manage.html'
+      template: contactsManageTemplate
     });
 }
 

@@ -8,6 +8,7 @@ System.config({
     ]
   },
   "paths": {
+    "*.html": "*.html",
     "*": "*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
@@ -23,6 +24,7 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "core-js": "npm:core-js@0.9.18",
     "dmytroyarmak/contact-manager-css": "github:dmytroyarmak/contact-manager-css@0.0.1",
+    "text": "github:systemjs/plugin-text@0.0.2",
     "github:angular/bower-angular-route@1.4.3": {
       "angular": "github:angular/bower-angular@1.4.3"
     },

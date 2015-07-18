@@ -29,7 +29,8 @@
       "angular": "github:angular/bower-angular@^1.4.3",
       "angular-route": "github:angular/bower-angular-route@^1.4.3",
       "bootstrap": "github:twbs/bootstrap@^3.3.5",
-      "dmytroyarmak/contact-manager-css": "github:dmytroyarmak/contact-manager-css@^0.0.1"
+      "dmytroyarmak/contact-manager-css": "github:dmytroyarmak/contact-manager-css@^0.0.1",
+      "systemjs/plugin-text": "github:systemjs/plugin-text@^0.0.2"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
