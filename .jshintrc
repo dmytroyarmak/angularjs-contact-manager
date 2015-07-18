@@ -21,7 +21,6 @@
   "esnext": true,
   "indent": 2,
   "globals": {
-    "System": false,
-    "angular": false
+    "System": false
   }
 }

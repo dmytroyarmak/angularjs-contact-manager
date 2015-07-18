@@ -1,6 +1,5 @@
 import angular from 'angular';
-import ngRoute from 'angular-route';
-import contactManager from './contact-manager';
+import contactManager from './contact-manager/main';
 
 angular.bootstrap(document.body, [contactManager], {
   strictDi: true
