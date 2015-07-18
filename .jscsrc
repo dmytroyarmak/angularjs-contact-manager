@@ -1,4 +1,5 @@
 {
+  "esnext": true,
   "disallowKeywords": ["with"],
   "disallowMixedSpacesAndTabs": true,
   "disallowMultipleLineStrings": true,

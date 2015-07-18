@@ -3,10 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Contact Manager</title>
-	<link rel="stylesheet" href="dist/css/contact-manager.css">
+  <link rel="stylesheet" href="./jspm_packages/github/twbs/bootstrap@3.3.5/css/bootstrap.css">
+  <link rel="stylesheet" href="./jspm_packages/github/dmytroyarmak/contact-manager-css@0.0.1/src/contact-manager.css">
+  <link rel="stylesheet" href="./src/styles/contact-manager.css">
 </head>
 <body>
-	<div ng-app="contactManager" ng-strict-di>
+	<div>
     <header class="bs-header">
       <div class="container">
         <h1>Contact Manager</h1>
@@ -22,8 +24,10 @@
     </div>
   </div>
 
-	<script src="dist/js/contact-manager.vendor.js"></script>
-  <script src="dist/js/contact-manager.js"></script>
-	<script src="dist/js/contact-manager.templates.js"></script>
+  <script src="./jspm_packages/system.js"></script>
+  <script src="./config.js"></script>
+  <script>
+        System.import('src/app/main');
+  </script>
 </body>
 </html>

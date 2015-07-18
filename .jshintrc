@@ -11,15 +11,17 @@
   "eqnull": true,
   "expr": true,
   "globalstrict": true,
-  "strict": true,
+  "strict": false,
   "laxbreak": true,
   "loopfunc": true,
   "sub": true,
   "undef": true,
   "browser": true,
   "node": true,
+  "esnext": true,
   "indent": 2,
   "globals": {
+    "System": false,
     "angular": false
   }
 }
